@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!--namespace必须是接口的全类名  -->
+<mapper namespace="com.gt.myshop.mapper.NewsInfoMapper">
+	<select id="getHomeNewsList" resultType="NewsInfo">
+		SELECT [temp2].[name],[temp1].[newsid],[temp1].[newstypeid],[temp1].[addtime],[temp1].[title],[temp1].[url] 
+		FROM (SELECT TOP ${count} [newsid],[newstypeid],[addtime],[title],[url] FROM [bma_news] 
+		<where>
+			<choose>
+				<when test="newsTypeId == 0">
+					[isshow]=1 AND 
+					[ishome]=1 ORDER BY [displayorder] DESC) AS [temp1] 
+					LEFT JOIN [bma_newstypes] AS [temp2] ON [temp1].[newstypeid]=[temp2].[newstypeid]
+				</when>
+				<otherwise>
+					[newstypeid]= #{newsTypeId} AND
+					[isshow]=1 AND [ishome]=1 ORDER BY [displayorder] DESC) AS [temp1] 
+					LEFT JOIN [bma_newstypes] AS [temp2] ON [temp1].[newstypeid]=[temp2].[newstypeid]
+				</otherwise>
+			</choose>
+		</where>
+		
+	</select>
+	
+	
+	
+</mapper>
