@@ -44,7 +44,7 @@
 <a href="/" class="logo left"><img src="${pageContext.request.contextPath}/images/logo.jpg" /></a>
 <div class="search left">
 <div class="searchCon">
-    <input type="text" id="word" name="word" class="Stext" autocomplete="off" onkeydown="javascript:if(event.keyCode==13) mallSearch(document.getElementById('word').value);" value="@Html.Raw(WorkContext.SearchWord)" />
+    <input type="text" id="word" name="word" class="Stext" autocomplete="off" onkeydown="javascript:if(event.keyCode==13) mallSearch(document.getElementById('word').value);" value="关键字" />
     <input name="" type="button" value="搜索" class="Sbutton" onclick="mallSearch(document.getElementById('word').value)" />
 <div class="clear"></div>
 </div>
@@ -55,7 +55,7 @@
 </div>
 </div>
 <div class="shopping right" id="cartSnapBox">
-<h2><a href="@Url.Action("index", "cart")">我的购物车<b id="cartSnapProudctCount">@WorkContext.CartProductCount</b></a></h2>
+<h2><a href="@Url.Action("index", "cart")">我的购物车<b id="cartSnapProudctCount">0</b></a></h2>
 <div id="cartSnap" class="shoppingList" style=" display:none;"><div class="loding"><img src="${pageContext.request.contextPath}/images/loading.gif" /><br />加载中，请稍候... </div></div>
 </div>
 <script type="text/javascript">
