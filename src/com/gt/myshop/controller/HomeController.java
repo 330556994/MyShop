@@ -61,7 +61,6 @@ public class HomeController {
 		map.put("news", newsService.getHomeNewsList(0,7));
 		map.put("mallConfig", mallConfigInfo);
 		map.put("workContext",mallAdminWorkContext);
-
 		return "home/index";
 	}
 	
